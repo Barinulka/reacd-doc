@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -8,6 +8,13 @@ function App() {
   const handleClickBtn = () => {
     setCount(count + 1);
   };
+
+  // useEffect - хук эффекта
+  // Обновим заголовок после загрузки DOM
+  useEffect(() => {
+    document.title = `Кнопка нажата ${count} раз`;
+    console.log("update");
+  },[count]);
 
   return (
     <div className="app">
